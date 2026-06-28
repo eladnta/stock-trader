@@ -17,5 +17,6 @@ def get_positions():
             "current_price": pos.get("current_price", pos.get("avg_cost", 0)),
             "pnl_pct": pos.get("pnl_pct", 0),
             "action": pos.get("action", "HOLD"),
+            "signal_scores": pos.get("signal_scores", {}),
         })
     return result
