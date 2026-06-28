@@ -5,6 +5,7 @@ export interface Position {
   current_price: number;
   pnl_pct: number;
   action: "BUY" | "SELL" | "HOLD";
+  signal_scores?: Record<string, number>;
 }
 
 export interface ConvictionAccuracy {
