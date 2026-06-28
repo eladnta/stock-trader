@@ -339,6 +339,7 @@ def cmd_demo(args):
     """Dry-run with mock data — shows what the trader would do without touching state."""
     from demo import MOCK_STOCKS, MockData, _patched_score_risk, _patched_score_horizons
     from analysis.analyst_aggregator import aggregate_analysts
+    from analysis.recommender import build_recommendation
 
     console.print(Rule("[bold cyan]Paper Trader DEMO — No state written[/]"))
     console.print("[dim]Using mock data. Simulates one full trading cycle.[/]\n")
