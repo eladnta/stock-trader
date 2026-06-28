@@ -1,0 +1,2 @@
+# Ensure shell scripts always have Unix line endings in Docker containers
+backend/entrypoint.sh text eol=lf
