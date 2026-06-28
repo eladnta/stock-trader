@@ -2,6 +2,7 @@ import { useState } from "react";
 import { VitalsPanel } from "../components/VitalsPanel";
 import { TopBar } from "../components/TopBar";
 import { Constellation } from "../components/Constellation";
+import { Inspector } from "../components/Inspector";
 import { useSSE } from "../api/sse";
 import { fetchAPI } from "../api/client";
 import { Portfolio, Position } from "../types";
@@ -39,9 +40,7 @@ export function Cockpit() {
           <Constellation positions={positions} selected={selected} onSelect={setSelected} />
         </main>
         {/* Inspector — Task 9 */}
-        <aside style={{ width: 320, borderRight: "1px solid var(--line)", padding: 16 }}>
-          <span style={{ color: "var(--txt3)", fontSize: 13 }}>בחר נכס</span>
-        </aside>
+        <Inspector selected={selected} />
       </div>
     </div>
   );
