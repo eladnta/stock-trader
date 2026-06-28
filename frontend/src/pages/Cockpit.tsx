@@ -3,6 +3,7 @@ import { VitalsPanel } from "../components/VitalsPanel";
 import { TopBar } from "../components/TopBar";
 import { Constellation } from "../components/Constellation";
 import { Inspector } from "../components/Inspector";
+import { PositionStrip } from "../components/PositionStrip";
 import { useSSE } from "../api/sse";
 import { fetchAPI } from "../api/client";
 import type { Portfolio, Position } from "../types";
@@ -42,6 +43,8 @@ export function Cockpit() {
         {/* Inspector — Task 9 */}
         <Inspector selected={selected} />
       </div>
+      {/* PositionStrip — Task 10 */}
+      <PositionStrip positions={positions} onSelect={setSelected} />
     </div>
   );
 }
