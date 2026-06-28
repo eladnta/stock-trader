@@ -2,12 +2,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.db.engine import _engine
-from backend.db.models import Base
+from backend.db.models import Base  # noqa: F401 – kept for Alembic env.py import
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with _engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
     yield
     await _engine.dispose()
 
