@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    volumes:
+      - ../state:/app/state        # engine reads/writes state/portfolio.json + events.db
+    depends_on:
+      - postgres
+    networks:
+      - app
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - api
+    networks:
+      - app
+      - public-web-edge            # NPM can reach this container
+
+volumes:
+  postgres_data:
+
+networks:
+  app:
+    driver: bridge
+  public-web-edge:
+    external: true
