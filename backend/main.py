@@ -20,6 +20,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from backend.routers.portfolio import router as portfolio_router
+app.include_router(portfolio_router, prefix="/api")
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}
