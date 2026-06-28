@@ -1,0 +1,12 @@
+yfinance>=0.2.40
+pandas>=2.0.0
+numpy>=1.24.0
+requests>=2.31.0
+rich>=13.0.0
+python-dateutil>=2.8.0
+
+# Optional — only needed if you enable the matching AI provider (LLM tier).
+# The free signal path does not require any of these.
+# anthropic>=0.40.0    # Anthropic / Claude provider
+# openai>=1.40.0       # OpenAI provider, and Grok (xAI OpenAI-compatible API)
+# Ollama runs as a local service (https://ollama.com) — no pip package needed.
