@@ -5,7 +5,7 @@ import { Constellation } from "../components/Constellation";
 import { Inspector } from "../components/Inspector";
 import { useSSE } from "../api/sse";
 import { fetchAPI } from "../api/client";
-import { Portfolio, Position } from "../types";
+import type { Portfolio, Position } from "../types";
 
 export function Cockpit() {
   const portfolio = useSSE<Portfolio>("/portfolio/stream");

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { Position } from "../types";
+import type { Position } from "../types";
 
 interface Props {
   positions: Position[];

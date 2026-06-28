@@ -1,4 +1,4 @@
-import { Portfolio } from "../types";
+import type { Portfolio } from "../types";
 import { MetricRow } from "./ui/MetricRow";
 import { ConvictionRing } from "./ui/ConvictionRing";
 
