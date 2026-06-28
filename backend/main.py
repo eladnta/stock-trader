@@ -21,7 +21,16 @@ app.add_middleware(
 )
 
 from backend.routers.portfolio import router as portfolio_router
+from backend.routers.positions import router as positions_router
+from backend.routers.analysis import router as analysis_router
+from backend.routers.signals import router as signals_router
+from backend.routers.cycle import router as cycle_router
+
 app.include_router(portfolio_router, prefix="/api")
+app.include_router(positions_router, prefix="/api")
+app.include_router(analysis_router, prefix="/api")
+app.include_router(signals_router, prefix="/api")
+app.include_router(cycle_router, prefix="/api")
 
 
 @app.get("/health")
